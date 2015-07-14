@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=960">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Jura&amp;subset=all">
+		<title>Page 1</title>
+
+
+        <script src="node_modules/jspdf/dist/jspdf.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>
+
+	</head>
+	<body id="body" style="width:6in; height:4in">
+        <div id="myprint" style="background-color: #b0c4de; width:6in; height:4in">
+            Hello world
+            <image src="alf.jpeg" style="margin-top:10px;">
+        </div>
+	</body>
+
+</html>
+
+<button onclick="getPDF();" style="width:200;height:50">Get PDF</button>
+<button onclick="printPDF();" style="width:200;height:50">Print PDF</button>
+        
+<script type="text/javascript">
+    var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
+    if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) { document.getElementsByTagName('body')[0].className+=' whitespacefix'; }
+</script>
+
+<script>
+    function getPDF()
+    {                
+        var pdf = jsPDF('l', 'in', [6,4]);
+        pdf.addHTML($('#myprint')[0], function () {
+                pdf.save('Test.pdf');
+            });
+        
+    }
+        
+    function printPDF()
+    {                
+        var pdf = jsPDF('l', 'in', [6,4]);
+        pdf.addHTML($('#myprint')[0], function () {
+                pdf.autoPrint(); 
+                pdf.output('dataurlnewwindow');
+            });
+        
+    }
+</script>
+
