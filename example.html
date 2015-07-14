@@ -1,4 +1,6 @@
-<button onclick="javascript:demoFromHTML();" style="width:200;height:50">PDF</button>
+<!--<button onclick="javascript:demoFromHTML();" style="width:200;height:50">PDF</button>-->
+<button onclick="fillDiv();" style="width:200;height:50">Another</button>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -194,7 +196,6 @@
 			</div>
 		</div>
         
-        <button onclick="fillDiv();" style="width:200;height:50">Another</button>
         
         </div>
         
@@ -206,7 +207,6 @@
     
     
     <div>
-        This is a text
         <iframe class="preview-pane" id="preview-pane" type="application/pdf" width="100%" height="650" frameborder="0" style="position:relative;z-index:999"></iframe>
     </div>
     
@@ -242,7 +242,8 @@
         // Output as Data URI
         doc.output('datauri');*/
         
-        var pdf = new jsPDF('p', 'pt', 'letter');
+        //var pdf = new jsPDF('p', 'pt', 'letter');
+        var pdf = jsPDF('l', 'in', [6,4]);
         pdf.addHTML($('#customers')[0], function () {
                 pdf.save('Test.pdf');
             });
