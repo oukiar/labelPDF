@@ -1,3 +1,6 @@
+<button onclick="getPDF();" style="width:200;height:50">Get PDF</button>
+<button onclick="printPDF();" style="width:200;height:50">Print PDF</button>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,17 +16,44 @@
 
 	</head>
 	<body id="body" style="width:6in; height:4in">
-        <div id="myprint" style="background-color: #b0c4de; width:6in; height:4in">
-            Hello world
-            <image src="alf.jpeg" style="margin-top:10px;">
+        
+        <div id="myprint" style="background-color: #b0c4de; width:6in; height:15in">
+            
+            <div id="page1" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+            <!-- ADD_PAGE -->
+            <div id="page2" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+            <!-- ADD_PAGE -->
+            <div id="page2" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+            <!-- ADD_PAGE -->
+            <div id="page2" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+            <!-- ADD_PAGE -->
+            <div id="page2" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+            <!-- ADD_PAGE -->
+            <div id="page2" style="width:6in; height:3in">            
+                Hello world
+                <image src="alf.jpeg" style="margin-top:10px;">
+            </div>
+
         </div>
 	</body>
 
 </html>
 
-<button onclick="getPDF();" style="width:200;height:50">Get PDF</button>
-<button onclick="printPDF();" style="width:200;height:50">Print PDF</button>
-        
 <script type="text/javascript">
     var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
     if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) { document.getElementsByTagName('body')[0].className+=' whitespacefix'; }
@@ -33,7 +63,7 @@
     function getPDF()
     {                
         var pdf = jsPDF('l', 'in', [6,4]);
-        pdf.addHTML($('#myprint')[0], function () {
+        pdf.addHTML($('#myprint')[0], {pagesplit: true}, function () {
                 pdf.save('Test.pdf');
             });
         
@@ -45,6 +75,7 @@
         pdf.addHTML($('#myprint')[0], function () {
                 pdf.autoPrint(); 
                 pdf.output('dataurlnewwindow');
+                
             });
         
     }
