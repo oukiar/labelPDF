@@ -1,4 +1,3 @@
-<button onclick="fillDiv();" style="width:200;height:50">Another</button>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,6 +26,8 @@
 		<![endif]-->
 	</head>
 	<body id="body">
+        <button onclick="fillDiv();" style="width:200;height:50">Another</button>
+        
     <div id="customers" style="width:6in; height:4in">
 		<div class="section">
 			<div class="cont">
@@ -197,15 +198,11 @@
         
         </div>
         
-		<script type="text/javascript">
-			var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
-            if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) { document.getElementsByTagName('body')[0].className+=' whitespacefix'; }
-		</script>
-        
 
     <div>
         <iframe class="preview-pane" id="preview-pane" type="application/pdf" width="100%" height="650" frameborder="0" style="position:relative;z-index:999"></iframe>
     </div>
+    
     
         
 	</body>
@@ -213,6 +210,11 @@
 </html>
 
 
+        
+<script type="text/javascript">
+    var androidBrowserVersion = RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);
+    if(androidBrowserVersion && parseFloat(androidBrowserVersion[1]) < 5) { document.getElementsByTagName('body')[0].className+=' whitespacefix'; }
+</script>
 
 <script>
     function fillDiv()
