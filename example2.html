@@ -72,7 +72,7 @@
     function printPDF()
     {                
         var pdf = jsPDF('l', 'in', [6,4]);
-        pdf.addHTML($('#myprint')[0], function () {
+        pdf.addHTML($('#myprint')[0], {pagesplit: true}, function () {
                 pdf.autoPrint(); 
                 pdf.output('dataurlnewwindow');
                 
