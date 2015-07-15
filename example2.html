@@ -248,17 +248,21 @@
         html2canvas($("#mylabel"), {
             onrendered: function(canvas) {
                 theCanvas = canvas;
-                document.body.appendChild(canvas);
+                
+                //document.body.appendChild(canvas);
 
                 // Convert and download as image 
                 //Canvas2Image.saveAsPNG(canvas); 
                 //$("#img-out").append(canvas);
                 
-                img = Canvas2Image.convertToImage(canvas, 600, 400, "jpg");
-                        
+                //Canvas2Image.saveAsPNG(canvas); 
+                
+                img = Canvas2Image.convertToImage(canvas, 600, 400, "jpeg");
+                                        
                 var pdf = jsPDF('l', 'in', [6,4]);
                 
-                pdf.addImage(img, "JPEG", 10,10,100,100);
+                pdf.addImage(img, "JPEG", 0,0,6,4,"receipt");
+                pdf.addPage();
                 pdf.save('Test.pdf');
                 
                 // Clean up 
